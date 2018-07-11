@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Time(models.Model):
     nome = models.CharField(max_length = 200)
+    imagem = models.CharField(max_length = 100, default = 'time_padrao.jpg')
     
 
     def __str__(self):
@@ -36,7 +37,6 @@ class Jogo(models.Model):
 class Gol(models.Model):
     jogo = models.ForeignKey(Jogo, on_delete = models.CASCADE)
     time = models.ForeignKey(Time, on_delete = models.CASCADE)
-
 
 class Criterio(models.Model):
     criterio = models.CharField(max_length = 200)
@@ -77,7 +77,6 @@ class Premiacao(models.Model):
     def __str__(self):
         return("Tipo: {0} - Valor {1}".format(self.tipo, self.valor_total))
 
-
 class Bolao(models.Model):
     nome = models.CharField(max_length = 200, default = "Bolão dos Amigos")
     campeonato = models.ForeignKey(Campeonato, on_delete = models.CASCADE)
@@ -86,11 +85,15 @@ class Bolao(models.Model):
     premicacao = models.ManyToManyField(Premiacao)
     valor_entrada = models.DecimalField(decimal_places=2,max_digits=9, blank = True, null = True)
     aberto = models.BooleanField(default = False)
+    imagem = models.CharField(max_length = 100, default = 'bolao_padrao.jpg')
 
     def __str__(self):
         return("Nome: {0}".format(self.nome))
 
-
+class Palpites(models.Model):
+    usuario = models.ForeignKey(User, on_delete = models.CASCADE)
+    gols = models.ForeignKey(Gol, on_delete = models.CASCADE)
+    bolao = models.ForeignKey(Bolao, on_delete = models.CASCADE)
 
 class Cartao(models.Model):
     nome_bandeira = models.CharField(max_length = 100)
@@ -105,6 +108,7 @@ class UsuarioDetalhes(models.Model):
     nome = models.CharField(max_length = 300)
     numero_cartao = models.BigIntegerField()
     bandeira_cartao = models.ForeignKey(Cartao, on_delete = models.CASCADE)
+    imagem = models.CharField(max_length = 100, default = 'avatar.jpg')
 
     def __str__(self):
         return("Nome: {0}".format(self.nome))

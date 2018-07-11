@@ -14,6 +14,7 @@ admin.site.register(Regulamento)
 admin.site.register(Premiacao)
 admin.site.register(TiposPremiacao)
 admin.site.register(Bolao)
+admin.site.register(Palpites)
 admin.site.register(Cartao)
 admin.site.register(UsuarioDetalhes)
 
