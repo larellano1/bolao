@@ -4,6 +4,24 @@
 
 {% block content %}
 
-<h1>Bem vindo, {{ nome }}</h1>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+
+    <div class="w3-row w3-padding-64">
+      <div class="w3-twothird w3-container">
+        <h1 class="w3-text-teal">Bolão Show</h1>
+        <p>Este é um site de entretenimento esportivo, para celebrar a amizade e o amor ao esporte. Convide seus amigos, organize seu o bolão com as suas próprias regras ou com um dos nossos regulamentos padronizados e torça muito enquanto aproveita para ganhar prêmios!</p>
+        <br>
+        <h3 class="w3-text-teal">Bolão Aberto da Copa do Mundo - Participe!</h3>
+        {% load static %}<img src="{% static 'show/img/russia_copa.png' %}" alt="Logo da Copa na Russia 2018"/>
+        
+        </div>
+      <div class="w3-third w3-container">
+        <p class="w3-border w3-padding-large w3-padding-32 w3-center">Seja um patrocinador da nossa iniciativa.</p>
+        <br>
+        <p class="w3-border w3-padding-large w3-padding-32 w3-center">Coloque a sua marca em destaque!</p>
+
+    </div>
+    </div>
 
 {% endblock %}
