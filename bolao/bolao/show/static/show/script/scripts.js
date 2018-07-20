@@ -15,7 +15,17 @@ document.addEventListener("DOMContentLoaded",function(event){
     overlayBg.addEventListener("click",w3_close);
     mySidebar.addEventListener("click",w3_close);
 
-});
+    //Change W3.CSS
+    var inputs = document.getElementsByTagName("input");
+    for(var i = 0; i < inputs.length; i++){
+        inputs[i].setAttribute("class", "w3-input");
+    };
+    var textareas = document.getElementsByTagName("textarea");
+    for(var i = 0; i < textareas.length; i++){
+        textareas[i].setAttribute("class", "w3-input");
+    };
+
+    });
 
 // Toggle between showing and hiding the sidebar, and add overlay effect
 function w3_open() {
