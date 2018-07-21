@@ -86,6 +86,8 @@ class Bolao(models.Model):
     valor_entrada = models.DecimalField(decimal_places=2,max_digits=9, blank = True, null = True)
     aberto = models.BooleanField(default = False)
     imagem = models.CharField(max_length = 100, default = 'bolao_padrao.jpg')
+    administrador = models.ForeignKey(User, on_delete=models.CASCADE)
+    encerrado = models.BooleanField(default = False)
 
     def __str__(self):
         return("Nome: {0}".format(self.nome))
