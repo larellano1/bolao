@@ -7,6 +7,7 @@ from .models import *
 admin.site.register(Time)
 admin.site.register(Modalidade)
 admin.site.register(Campeonato)
+admin.site.register(Jogo)
 admin.site.register(Gol)
 admin.site.register(Criterio)
 admin.site.register(Regra)
