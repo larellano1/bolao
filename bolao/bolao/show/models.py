@@ -34,6 +34,10 @@ class Jogo(models.Model):
     data = models.DateTimeField('data jogo')
     campeonato = models.ForeignKey(Campeonato, on_delete = models.CASCADE)
 
+    def __str__(self):
+        return("{0} - {1} - {2}".format(self.times, self.data, self.campeonato))
+
+
 class Gol(models.Model):
     jogo = models.ForeignKey(Jogo, on_delete = models.CASCADE)
     time = models.ForeignKey(Time, on_delete = models.CASCADE)
