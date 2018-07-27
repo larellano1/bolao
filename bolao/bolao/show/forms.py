@@ -9,4 +9,4 @@ class ConvidarAmigo(forms.Form):
 class BolaoForm(forms.ModelForm):
     class Meta:
         model = Bolao
-        fields = ["nome", "campeonato", "participantes", "regulamento", "premiacao", "imagem", "valor_entrada"]
+        fields = "__all__"

@@ -86,10 +86,10 @@ class Bolao(models.Model):
     campeonato = models.ForeignKey(Campeonato, on_delete = models.CASCADE)
     regulamento = models.ForeignKey(Regulamento, on_delete = models.CASCADE)
     participantes = models.ManyToManyField(User)
-    premicacao = models.ManyToManyField(Premiacao)
+    premicacao = models.ManyToManyField(Premiacao, verbose_name = "Premiação")
     valor_entrada = models.DecimalField(decimal_places=2,max_digits=9, blank = True, null = True)
     aberto = models.BooleanField(default = False)
-    imagem = models.CharField(max_length = 100, default = 'bolao_padrao.jpg')
+    imagem = models.ImageField(max_length = 100, default = 'bolao_padrao.jpg')
     administrador = models.ForeignKey(User, on_delete=models.CASCADE, related_name='%(class)s_requests_created', default=1)
     encerrado = models.BooleanField(default = False)
 
@@ -115,6 +115,7 @@ class UsuarioDetalhes(models.Model):
     numero_cartao = models.BigIntegerField()
     bandeira_cartao = models.ForeignKey(Cartao, on_delete = models.CASCADE)
     imagem = models.CharField(max_length = 100, default = 'avatar.jpg')
+    amigos = models.ManyToManyField(User, related_name="Amigos")
 
     def __str__(self):
         return("Nome: {0}".format(self.nome))
