@@ -113,7 +113,12 @@ class UsuarioDetalhes(models.Model):
     usuario = models.OneToOneField(User, on_delete = models.CASCADE)
     nome = models.CharField(max_length = 300)
     imagem = models.CharField(max_length = 100, default = 'avatar.jpg')
-    amigos = models.ManyToManyField(User, related_name="Amigos")
 
     def __str__(self):
         return("Nome: {0}".format(self.nome))
+
+class Relacionamentos(models.Model):
+
+    requerente = models.ForeignKey(User, on_delete = models.CASCADE)
+    requerido = models.ForeignKey(User, on_delete = models.CASCADE)
+    aceito = models.BooleanField(default = False)
