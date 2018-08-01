@@ -1,0 +1,16 @@
+{% extends 'show/layout.html' %}
+
+
+{% block content %}
+
+<div class="w3-container">
+    <div class="w3-container w3-teal">
+        <h2>Convite</h2>
+    </div>
+<form class="w3-container" name="form_criarbolao" action="{% url 'criarbolao' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Criar" />
+</form>
+</div>
+{% endblock %}
