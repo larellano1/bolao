@@ -112,8 +112,6 @@ class Cartao(models.Model):
 class UsuarioDetalhes(models.Model):
     usuario = models.OneToOneField(User, on_delete = models.CASCADE)
     nome = models.CharField(max_length = 300)
-    numero_cartao = models.BigIntegerField()
-    bandeira_cartao = models.ForeignKey(Cartao, on_delete = models.CASCADE)
     imagem = models.CharField(max_length = 100, default = 'avatar.jpg')
     amigos = models.ManyToManyField(User, related_name="Amigos")
 
