@@ -122,3 +122,6 @@ class Relacionamentos(models.Model):
     requerente = models.ForeignKey(User, on_delete = models.CASCADE)
     requerido = models.ForeignKey(User, on_delete = models.CASCADE, related_name="amigo")
     aceito = models.BooleanField(default = False)
+
+    def __str__(self):
+        return("Requerente: {0} - Requerido: {1} - Aceito: {2}".format(self.requerente, self.requerido, self.aceito))
