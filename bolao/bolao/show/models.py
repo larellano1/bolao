@@ -120,5 +120,5 @@ class UsuarioDetalhes(models.Model):
 class Relacionamentos(models.Model):
 
     requerente = models.ForeignKey(User, on_delete = models.CASCADE)
-    requerido = models.ForeignKey(User, on_delete = models.CASCADE)
+    requerido = models.ForeignKey(User, on_delete = models.CASCADE, related_name="amigo")
     aceito = models.BooleanField(default = False)
